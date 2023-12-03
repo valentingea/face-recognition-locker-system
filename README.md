@@ -1,4 +1,4 @@
-# FINAL PROJECT TITLE HERE
+# FACE FORTIFY : Face Recognition Locker System
 
 ## Project Description
 Please describe your Startup Campus final project here. You may should your <b>model architecture</b> in JPEG or GIF.
@@ -6,7 +6,7 @@ Please describe your Startup Campus final project here. You may should your <b>m
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
 | --- | --- | --- | --- | --- |
-| ... | ... | ... | ... | Team Lead |
+| Valentin Gea Affila Pradika | Udayana University | gea.valentin00@gmail.com | [Valentin Gea](https://www.linkedin.com/in/valentin-gea/) | Team Lead |
 | ... | ... | ... | ... | Team Member |
 | ... | ... | ... | ... |Team Member |
 | ... | ... | ... | ... | ... |
