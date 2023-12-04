@@ -96,6 +96,8 @@ Provide all links that support this final project, i.e., papers, GitHub reposito
   
 - Cheng, Wen-Chang, et al. "The Implementation of Smart Locker in Edge Computing." 2022 8th International Conference on Applied System Innovation (ICASI). IEEE, 2022.
   
+- A. I. Naseem, B. R. Togneri and C. M. Bennamoun, "Face identification using linear regression," 2009 16th IEEE International Conference on Image Processing (ICIP), Cairo, Egypt, 2009, pp. 4161-4164, doi: 10.1109/ICIP.2009.5414539.
+  
 - Link: https://...
 
 ## How to Cite
