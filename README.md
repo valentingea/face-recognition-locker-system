@@ -11,7 +11,7 @@ Please describe your Startup Campus final project here. You may should your <b>m
 | Edy Fitriyanto | Ahmad Dahlan University | edyfitriyanto12@gmail.com | [link](https://www.linkedin.com/in/edy-fitriyanto-12163622a/) |Team Member |
 | Fanesa Dwiana Sari | Amikom Purwokerto University | fanesadwiana@gmail.com | [link](https://www.linkedin.com/in/fanesa-dwiana-sari-2b04b125a/) | Team Member |
 | Heri Gunawan | Diponegoro University | gunawanheri534@gmail.com | [link](https://www.linkedin.com/in/heri-gunawan-b957401b8/) | Team Member |
-| Mitra Novitri Waruwu | ... | ... | ... | Team Member |
+| Mitra Novitri Waruwu | Nias University | mitranovitri14@gmail.com | [link](https://www.linkedin.com/in/mitra-novitri-waruwu-00a04a283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | Team Member |
 | M. Haswin Anugrah Pratama | Startup Campus, AI Track | haswinpratama21@gmail.com | [link](https://www.linkedin.com/in/haswinpratama/) | Supervisor |
 | Ni Luh Ayu Nitya Laksmi | Startup Campus, AI Track | nityalaksmi@gmail.com | [link](https://www.linkedin.com/in/nitya-laksmi-0b152b18b/) | Facilitator |
 
@@ -24,23 +24,11 @@ Please describe your Startup Campus final project here. You may should your <b>m
 - numpy==1.23.5
 - streamlit==1.28.2
 
-### Environment
-| | |
-| --- | --- |
-| CPU | Example: Apple M3 Pro 12-core CPU |
-| GPU | Example: Nvidia A100 (x1) |
-| ROM | Example: 1 TB SSD |
-| RAM | Example: 36 GB |
-| OS | Example: macOS Sonoma v14.1.1 |
-
 ## Dataset
 The Dataset is a manually curated collection of high-quality facial images representing each team member, designed for training and evaluating a face recognition model
 - Link: https://drive.google.com/file/d/1F5aAY3sl3X8otpcknJKCEGq-g0SLmZWg/view?usp=sharing
-![data awan](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/a91dc27b-e762-4f36-a4a8-ca547c54056e)
-![data mitra](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/cc39444e-8b75-4fb6-b2e8-02911db43894)
-![data edy](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/a284f9b4-9297-4886-a1b7-034baec3b163)
-![data fanesa](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/70ae26d6-8571-457a-8689-d57ad7a705b6)
-![data gea](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/b63edecd-f03d-4c9c-959f-cd8619882db4)
+
+example dataset :
 ![data ghulam](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/2799604c-a994-41af-ba30-ca2539575979)
 
 ## Results
@@ -83,7 +71,7 @@ Our deployment leverages Streamlit, a powerful Python library for creating inter
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: 
+[Presentation Deck](https://drive.google.com/file/d/1IAmhvXkki48DeqWj_VXv2LNyqaxGEcGH/view?usp=sharing)
 
 ### Business Model Canvas
 The business model canvas is a strategic management tool that provides a visual framework for developing, describing, and assessing a business model in a concise one-page format.
@@ -91,7 +79,7 @@ The business model canvas is a strategic management tool that provides a visual 
 ![bmc 2](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/3168af70-21fe-4caa-9822-8c2a638ffbd4)
 
 ### Short Video
-https://...
+[Short Video](https://drive.google.com/file/d/11GRKILC0B2dW9ttjJQZ0YE1K5kWBUXeA/view?usp=sharing)
 
 ## References
 Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
