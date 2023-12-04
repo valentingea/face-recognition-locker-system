@@ -88,8 +88,14 @@ The business model canvas is a strategic management tool that provides a visual 
 
 ## References
 Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
-- Link: https://...
-- Link: https://...
+- Link: https://www.kaggle.com/code/nandinibagga/face-recognition-model-opencv-lbph
+
+- X. Zhao and C. Wei, "A real-time face recognition system based on the improved LBPH algorithm," 2017 IEEE 2nd International Conference on Signal and Image Processing (ICSIP), Singapore, 2017, pp. 72-76, doi: 10.1109/SIPROCESS.2017.8124508.
+
+- Link: https://www.kaggle.com/code/vinayakshanawad/celebrity-face-recognition-vggface-model
+  
+- Cheng, Wen-Chang, et al. "The Implementation of Smart Locker in Edge Computing." 2022 8th International Conference on Applied System Innovation (ICASI). IEEE, 2022.
+  
 - Link: https://...
 
 ## How to Cite
