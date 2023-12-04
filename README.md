@@ -1,7 +1,7 @@
 # FACE FORTIFY : Face Recognition Locker System
 
 ## Project Description
-Please describe your Startup Campus final project here. You may should your <b>model architecture</b> in JPEG or GIF.
+Our project introduces a state-of-the-art Face Recognition Locker System implemented using a customized VGG16 model. This innovative solution combines advanced face recognition technology with a secure locker system, providing a seamless and secure user experience.
 
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
@@ -68,6 +68,8 @@ Our deployment leverages Streamlit, a powerful Python library for creating inter
 ![hal 1](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/f002bc0c-94ed-4b0b-bd89-1809ccb37f0a)
 ![hal 2](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/265cd03d-782d-4f40-ade8-5573cd81b8a7)
 ![hal 3](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/e012fcd0-8671-4703-8a7e-732dbea0078e)
+
+if you want to try running the program with original data, you can download the model [here](https://drive.google.com/file/d/1sO6vQMFZmZaV3uD47ovzGRN8LuQ55hGf/view?usp=sharing). But, if you want to use your own data, you have to retrain the model with your data.
 
 ## Supporting Documents
 ### Presentation Deck
