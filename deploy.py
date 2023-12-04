@@ -6,6 +6,7 @@ from PIL import Image
 import torch
 import torch.nn as nn
 from torchvision import models, transforms
+import base64
 
 # Data loker
 lockers_data = [
@@ -22,7 +23,7 @@ lockers_data = [
 all = ["A1","A2","A3","A4","A5","A6","A7","A8"]
 #used = ['A2', 'A3']
 
-folder_path = 'C:\File Gea\MBKM\SC AI\deployment\data'
+folder_path = 'data'
 all_folders = [folder for folder in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, folder))]
 
 # Mendapatkan daftar folder yang berisi gambar
@@ -73,60 +74,67 @@ def home():
         "This system relies on facial recognition technology. Please make sure your face is properly captured for secure locker access."
     )
 
-def check(image_path, label):
+def check(image_path):
     device = torch.device("cpu")
     num_classes = 5
 
-    # Path ke model yang telah tersimpan
+    # Path to the model that has been saved
     model_folder = 'train_model'
     model_path = os.path.join(model_folder, 'model.pth')
 
-    # Load pre-trained VGG16 model
+    # Load the pre-trained VGG16 model
     vgg_test = models.vgg16()
     vgg_test.classifier[-1] = nn.Linear(vgg_test.classifier[-1].in_features, num_classes)
 
-    # Load parameter model yang telah tersimpan
-    vgg_test.load_state_dict(torch.load(model_path))
+    # Load the saved model parameters
+    checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
+    vgg_test.load_state_dict(checkpoint['model_state_dict'])
 
-    # Pindahkan model ke perangkat yang sesuai
+    # Access the class_names attribute from the loaded model
+    class_names = checkpoint['class_names']
+
+    # Set class_names as an attribute of vgg_test
+    vgg_test.class_names = class_names
+
+    # Move the model to the appropriate device
     vgg_test = vgg_test.to(device)
 
-    # Pastikan model berada dalam mode evaluasi
+    # Ensure the model is in evaluation mode
     vgg_test.eval()
 
-    # Definisi transformasi untuk gambar pengujian
+    # Define the transformation for test images
     test_transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
 
-    # Fungsi untuk melakukan pengujian pada satu gambar
-    def test_single_image(image_path):
-        # Baca gambar
+    # Function to perform testing on a single image
+    def test_single_image(image_path, model):
+        # Read the image
         image = Image.open(image_path).convert("RGB")
 
-        # Terapkan transformasi
+        # Apply the transformation
         image = test_transform(image)
 
-        # Tambahkan dimensi batch
+        # Add a batch dimension
         image = image.unsqueeze(0).to(device)
 
-        # Dapatkan output dari model
+        # Get the output from the model
         with torch.no_grad():
-            output = vgg_test(image)
+            output = model(image)
 
-        # Ambil kelas prediksi
+        # Get the predicted class
         _, predicted_class = torch.max(output, 1)
 
-        return predicted_class.item()
+        # Get the name of the predicted class from the model's attribute
+        class_name = model.class_names[predicted_class.item()]
 
-    predicted_class = test_single_image(image_path)
+        return class_name
 
-    if predicted_class == label:
-        st.success("Your locker has successfully open")
-    else:
-        st.warning('Your data is not matched', icon="⚠️")
+    predicted_class = test_single_image(image_path, vgg_test)
+
+    return predicted_class
 
 # Fungsi untuk membuka loker baru
 def open_new_locker():
@@ -230,10 +238,14 @@ def reopen_locker(model):
     st.write("##### Face the camera and press the 'Take Picture' button")
     camst = st.camera_input("Take a picture")
 
-    # if camst is not None:       
-    #     load = st.spinner('Searcing data...')
-    #     with load:
-    #         check(camst, label)
+    if camst is not None:       
+        load = st.spinner('Searcing data...')
+        with load:
+            predict = check(camst)
+        if predict == label:
+            st.success("Your locker has successfully open")
+        else:
+            st.warning('Your data is not matched', icon="⚠️")
 
 # Fungsi untuk menyelesaikan penggunaan loker
 def finish(model):
@@ -266,18 +278,20 @@ def finish(model):
     st.write("##### Face the camera and press the 'Take Picture' button")
     camst = st.camera_input("Take a picture")
 
-    # if camst is not None:       
-    #     load = st.spinner('Searcing data...')
-    #     with load:
-    #         check(camst, label)
-
-        # st.session_state.used.remove(selected_locker)
-        # st.session_state.available = [locker for locker in all if locker not in st.session_state.used]
-        
+    if camst is not None:       
+        load = st.spinner('Searcing data...')
+        with load:
+            predict = check(camst)
+        if predict == label:
+            st.success("Your locker has successfully open")
+            st.session_state.used.remove(selected_locker)
+            st.session_state.available = [locker for locker in all if locker not in st.session_state.used]
+        else:
+            st.warning('Your data is not matched', icon="⚠️")            
 
 def page_test_image():
     device = torch.device("cpu")
-    num_classes = 10
+    num_classes = 5
 
     # Path to the model that has been saved
     model_folder = 'train_model'
@@ -288,7 +302,14 @@ def page_test_image():
     vgg_test.classifier[-1] = nn.Linear(vgg_test.classifier[-1].in_features, num_classes)
 
     # Load the saved model parameters
-    vgg_test.load_state_dict(torch.load(model_path))
+    checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
+    vgg_test.load_state_dict(checkpoint['model_state_dict'])
+
+    # Access the class_names attribute from the loaded model
+    class_names = checkpoint['class_names']
+
+    # Set class_names as an attribute of vgg_test
+    vgg_test.class_names = class_names
 
     # Move the model to the appropriate device
     vgg_test = vgg_test.to(device)
@@ -304,7 +325,7 @@ def page_test_image():
     ])
 
     # Function to perform testing on a single image
-    def test_single_image(image_path):
+    def test_single_image(image_path, model):
         # Read the image
         image = Image.open(image_path).convert("RGB")
 
@@ -316,23 +337,27 @@ def page_test_image():
 
         # Get the output from the model
         with torch.no_grad():
-            output = vgg_test(image)
+            output = model(image)
 
         # Get the predicted class
         _, predicted_class = torch.max(output, 1)
 
-        return predicted_class.item()
+        # Get the name of the predicted class from the model's attribute
+        class_name = model.class_names[predicted_class.item()]
+
+        return class_name
 
     # Path to the folder containing test images
-    test_images_folder = 'new_dataset'
+    test_images_folder = 'new_test'
 
     # Test multiple images
     for image_file in os.listdir(test_images_folder):
         image_path = os.path.join(test_images_folder, image_file)
-        predicted_class = test_single_image(image_path)
-        st.image(image_file)
+        predicted_class = test_single_image(image_path, vgg_test)
+
+        # Display image using HTML
+        st.markdown(f'<img src="data:image/jpeg;base64,{base64.b64encode(open(image_path, "rb").read()).decode()}" alt="image">', unsafe_allow_html=True)
         st.write(f"Predicted : {predicted_class}")
-        #print(f"Image: {image_file}, Predicted Class: {predicted_class}")
 
 def main():
     st.title("FaceFortify")
@@ -363,4 +388,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
