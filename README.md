@@ -40,7 +40,7 @@ Describe all results found in your final project experiments, including hyperpar
 The table below summarizes the model's performance across different experiments
 
 | model | epoch | learning_rate | momentum | batch_size | optimizer | train_accuracy | val_accuracy |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | vgg16 | 5 | 0.001 | - | 32 | Adam | 97% | 96% | 
 | vgg16 | 5 | 0.001 | 0.9 | 43 | SGD | 98% | 97% |
 | vgg16 | 5 | 0.01 | 0.9 | 43 | SGD | 99% | 98% |
