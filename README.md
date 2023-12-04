@@ -29,6 +29,7 @@ The Dataset is a manually curated collection of high-quality facial images repre
 - Link: https://drive.google.com/file/d/1F5aAY3sl3X8otpcknJKCEGq-g0SLmZWg/view?usp=sharing
 
 example dataset :
+
 ![data ghulam](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/2799604c-a994-41af-ba30-ca2539575979)
 
 ## Results
@@ -54,9 +55,11 @@ Improvements or modifications of our base model vgg16 that we use :
 
 #### 3. Training/Validation Curve
 Training and validation loss function curve
+
 ![loss](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/e9957ea7-6050-45a4-ad8b-ba2b8122ff87)
 
 Training and validation accuracy curve
+
 ![akurasi](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/5d5e8b31-f0ba-472d-b4e6-57ad5effc5d9)
  
 ### Testing
