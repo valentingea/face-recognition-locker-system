@@ -6,21 +6,23 @@ Please describe your Startup Campus final project here. You may should your <b>m
 ## Contributor
 | Full Name | Affiliation | Email | LinkedIn | Role |
 | --- | --- | --- | --- | --- |
-| Valentin Gea Affila Pradika | Udayana University | gea.valentin00@gmail.com | [Valentin Gea](https://www.linkedin.com/in/valentin-gea/) | Team Lead |
-| ... | ... | ... | ... | Team Member |
-| ... | ... | ... | ... |Team Member |
-| ... | ... | ... | ... | ... |
-| ... | ... | ... | ... | ... |
-| Nicholas Dominic | Startup Campus, AI Track | nic.dominic@icloud.com | [link](https://linkedin.com/in/nicholas-dominic) | Supervisor |
+| Valentin Gea Affila Pradika | Udayana University | gea.valentin00@gmail.com | [link](https://www.linkedin.com/in/valentin-gea/) | Team Lead |
+| Muhammad Ghulamzaki | Semarang State University  | gulammuzakie@gmail.com | [link](https://www.linkedin.com/in/muhammad-ghulamzaki) | Team Member |
+| Edy Fitriyanto | Ahmad Dahlan University | edyfitriyanto12@gmail.com | [link](https://www.linkedin.com/in/edy-fitriyanto-12163622a/) |Team Member |
+| Fanesa Dwiana Sari | Amikom Purwokerto University | fanesadwiana@gmail.com | [link](https://www.linkedin.com/in/fanesa-dwiana-sari-2b04b125a/) | Team Member |
+| Heri Gunawan | Diponegoro University | gunawanheri534@gmail.com | [link](https://www.linkedin.com/in/heri-gunawan-b957401b8/) | Team Member |
+| Mitra Novitri Waruwu | ... | ... | ... | Team Member |
+| M. Haswin Anugrah Pratama | Startup Campus, AI Track | haswinpratama21@gmail.com | [link](https://www.linkedin.com/in/haswinpratama/) | Supervisor |
+| Ni Luh Ayu Nitya Laksmi | Startup Campus, AI Track | nityalaksmi@gmail.com | [link](https://www.linkedin.com/in/nitya-laksmi-0b152b18b/) | Facilitator |
 
 ## Setup
 ### Prerequisite Packages (Dependencies)
-- pandas==2.1.0
-- openai==0.28.0
-- google-cloud-aiplatform==1.34.0
-- google-cloud-bigquery==3.12.0
-- ...
-- ...
+- pytorch==2.1.0+cu118
+- sklearn==1.2.2
+- PIL==9.4.0
+- matplotlib==3.7.1
+- numpy==1.23.5
+- streamlit==1.28.2
 
 ### Environment
 | | |
@@ -32,71 +34,70 @@ Please describe your Startup Campus final project here. You may should your <b>m
 | OS | Example: macOS Sonoma v14.1.1 |
 
 ## Dataset
-Describe your dataset information here. Provide a screenshot for some of your dataset samples (for example, if you're using CIFAR10 dataset, then show an image for each class).
-- Link: https://...
+The Dataset is a manually curated collection of high-quality facial images representing each team member, designed for training and evaluating a face recognition model
+- Link: https://drive.google.com/file/d/1F5aAY3sl3X8otpcknJKCEGq-g0SLmZWg/view?usp=sharing
+![data awan](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/a91dc27b-e762-4f36-a4a8-ca547c54056e)
+![data mitra](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/cc39444e-8b75-4fb6-b2e8-02911db43894)
+![data edy](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/a284f9b4-9297-4886-a1b7-034baec3b163)
+![data fanesa](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/70ae26d6-8571-457a-8689-d57ad7a705b6)
+![data gea](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/b63edecd-f03d-4c9c-959f-cd8619882db4)
+![data ghulam](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/2799604c-a994-41af-ba30-ca2539575979)
 
 ## Results
 ### Model Performance
+This section is an overview of the performance of our fine-tuned VGG16 model on a custom dataset. The primary objective was to achieve optimal classification accuracy for images across various classes. The model was trained using different hyperparameter configurations, and we assess its effectiveness through key performance metrics.
 Describe all results found in your final project experiments, including hyperparameters tuning and architecture modification performances. Put it into table format. Please show pictures (of model accuracy, loss, etc.) for more clarity.
 
 #### 1. Metrics
-Inform your model validation performances, as follows:
-- For classification tasks, use **Precision and Recall**.
-- For object detection tasks, use **Precision and Recall**. Additionaly, you may also use **Intersection over Union (IoU)**.
-- For image retrieval tasks, use **Precision and Recall**.
-- For optical character recognition (OCR) tasks, use **Word Error Rate (WER) and Character Error Rate (CER)**.
-- For adversarial-based generative tasks, use **Peak Signal-to-Noise Ratio (PNSR)**. Additionally, for specific GAN tasks,
-  - For single-image super resolution (SISR) tasks, use **Structural Similarity Index Measure (SSIM)**.
-  - For conditional image-to-image translation tasks (e.g., Pix2Pix), use **Inception Score**.
+The table below summarizes the model's performance across different experiments
 
-Feel free to adjust the columns in the table below.
-
-| model | epoch | learning_rate | batch_size | optimizer | val_loss | val_precision | val_recall | ... |
+| model | epoch | learning_rate | momentum | batch_size | optimizer | train_accuracy | val_accuracy |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| vit_b_16 | 1000 |  0.0001 | 32 | Adam | 0.093 | 88.34% | 84.15% | ... |
-| vit_l_32 | 2500 | 0.00001 | 128 | SGD | 0.041 | 90.19% | 87.55% | ... |
-| ... | ... | ... | ... | ... | ... | ... | ... | ... | 
+| vgg16 | 5 | 0.001 | - | 32 | Adam | 97% | 96% | 
+| vgg16 | 5 | 0.001 | 0.9 | 43 | SGD | 98% | 97% |
+| vgg16 | 5 | 0.01 | 0.9 | 43 | SGD | 99% | 98% |
+| vgg16 | 5 | 0.001 | - | 43 | Adagard | 97% | 100% |
+| vgg16 | 10 | 0.001 | - | 43 | Adagard | 98% | 100% |
 
 #### 2. Ablation Study
-Any improvements or modifications of your base model, should be summarized in this table. Feel free to adjust the columns in the table below.
-
-| model | layer_A | layer_B | layer_C | ... | top1_acc | top5_acc |
-| --- | --- | --- | --- | --- | --- | --- |
-| vit_b_16 | Conv(3x3, 64) x2 | Conv(3x3, 512) x3 | Conv(1x1, 2048) x3 | ... | 77.43% | 80.08% |
-| vit_b_16 | Conv(3x3, 32) x3 | Conv(3x3, 128) x3 | Conv(1x1, 1028) x2 | ... | 72.11% | 76.84% |
-| ... | ... | ... | ... | ... | ... | ... |
+Improvements or modifications of our base model vgg16 that we use :
+- Freezing Convolutional Layers
+- Customized Classifier
 
 #### 3. Training/Validation Curve
-Insert an image regarding your training and evaluation performances (especially their losses). The aim is to assess whether your model is fit, overfit, or underfit.
+Training and validation loss function curve
+![loss](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/e9957ea7-6050-45a4-ad8b-ba2b8122ff87)
+
+Training and validation accuracy curve
+![akurasi](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/5d5e8b31-f0ba-472d-b4e6-57ad5effc5d9)
  
 ### Testing
-Show some implementations (demos) of this model. Show **at least 10 images** of how your model performs on the testing data.
+The data we use for testing is data that has been adjusted to the format in deployment. 10 data in testing gave appropriate results.
 
-### Deployment (Optional)
-Describe and show how you deploy this project (e.g., using Streamlit or Flask), if any.
+### Deployment
+Our deployment leverages Streamlit, a powerful Python library for creating interactive web applications, to facilitate the seamless and user-friendly selection of lockers based on facial recognition.
+
+![hal 1](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/f002bc0c-94ed-4b0b-bd89-1809ccb37f0a)
+![hal 2](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/265cd03d-782d-4f40-ade8-5573cd81b8a7)
+![hal 3](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/e012fcd0-8671-4703-8a7e-732dbea0078e)
 
 ## Supporting Documents
 ### Presentation Deck
-- Link: https://...
+- Link: 
 
 ### Business Model Canvas
-Provide a screenshot of your Business Model Canvas (BMC). Give some explanations, if necessary.
+The business model canvas is a strategic management tool that provides a visual framework for developing, describing, and assessing a business model in a concise one-page format.
+![bmc 1](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/ca601234-0514-4e1b-9480-4e294afcca02)
+![bmc 2](https://github.com/valentingea/face-recognition-locker-system/assets/117613132/3168af70-21fe-4caa-9822-8c2a638ffbd4)
 
 ### Short Video
-Provide a link to your short video, that should includes the project background and how it works.
-- Link: https://...
+https://...
 
 ## References
 Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
 - Link: https://...
 - Link: https://...
 - Link: https://...
-
-## Additional Comments
-Provide your team's additional comments or final remarks for this project. For example,
-1. ...
-2. ...
-3. ...
 
 ## How to Cite
 If you find this project useful, we'd grateful if you cite this repository:
