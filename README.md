@@ -89,8 +89,6 @@ The business model canvas is a strategic management tool that provides a visual 
 ## References
 Provide all links that support this final project, i.e., papers, GitHub repositories, websites, etc.
 - Link: https://www.kaggle.com/code/nandinibagga/face-recognition-model-opencv-lbph
-
-
 - Link: https://www.kaggle.com/code/vinayakshanawad/celebrity-face-recognition-vggface-model
 - Link: https://...
 
