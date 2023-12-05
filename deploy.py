@@ -7,6 +7,7 @@ import torch
 import torch.nn as nn
 from torchvision import models, transforms
 import base64
+import shutil
 
 # Data loker
 lockers_data = [
@@ -209,7 +210,7 @@ def open_new_locker():
                 break
 
 # Fungsi untuk membuka kembali loker
-def reopen_locker(model):
+def reopen_locker():
     st.subheader("Reopen Locker")
 
     for i in range(3):
@@ -248,7 +249,7 @@ def reopen_locker(model):
             st.warning('Your data is not matched', icon="⚠️")
 
 # Fungsi untuk menyelesaikan penggunaan loker
-def finish(model):
+def finish():
     global all
     st.subheader("Finish use")
 
@@ -286,6 +287,8 @@ def finish(model):
             st.success("Your locker has successfully open")
             st.session_state.used.remove(selected_locker)
             st.session_state.available = [locker for locker in all if locker not in st.session_state.used]
+            if os.path.exists(selected_locker):
+                shutil.rmtree(selected_locker)
         else:
             st.warning('Your data is not matched', icon="⚠️")            
 
