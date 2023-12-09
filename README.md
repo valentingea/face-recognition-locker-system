@@ -44,9 +44,8 @@ The table below summarizes the model's performance across different experiments
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | vgg16 | 5 | 0.001 | - | 32 | Adam | 97% | 96% | 
 | vgg16 | 5 | 0.001 | 0.9 | 43 | SGD | 98% | 97% |
-| vgg16 | 5 | 0.01 | 0.9 | 43 | SGD | 99% | 98% |
-| vgg16 | 5 | 0.001 | - | 43 | Adagard | 97% | 100% |
-| vgg16 | 10 | 0.001 | - | 43 | Adagard | 98% | 100% |
+| vgg16 | 5 | 0.01 | 0.9 | 43 | SGD | 97% | 96% |
+| vgg16 | 10 | 0.01 | - | 43 | Adagard | 96% | 98% |
 
 #### 2. Ablation Study
 Improvements or modifications of our base model vgg16 that we use :
@@ -76,7 +75,7 @@ if you want to try running the program with original data, you can download the 
 
 ## Supporting Documents
 ### Presentation Deck
-[Presentation Deck](https://drive.google.com/file/d/1IAmhvXkki48DeqWj_VXv2LNyqaxGEcGH/view?usp=sharing)
+[Presentation Deck](https://drive.google.com/file/d/1ourl5lYNiHLecRYxaus7g-81wTnnRMXT/view?usp=sharing)
 
 ### Business Model Canvas
 The business model canvas is a strategic management tool that provides a visual framework for developing, describing, and assessing a business model in a concise one-page format.
